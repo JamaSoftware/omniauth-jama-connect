@@ -32,6 +32,8 @@ This will add an endpoint to your application at `/auth/jama_connect` that will 
 
 In the callback controller, you can find the `token` and `refresh_token` on the Hash: `request.env['omniauth.auth']['credentials']`. Store these values for subsequent requests to the Jama Connect API.
 
+**Note:** The `JAMA_CONNECT_CLIENT_ID` and `JAMA_CONNECT_CLIENT_SECRET` values mentioned in the above example are NOT the same values that you would receive through the "Set API Credentials" Web interface. Those credentials do not have the proper authorization to administer authorization codes or refresh tokens against the Jama Connect OAuth system. Instead, you must contact Jama Software to setup an OAuth client, and they will provide you these values.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
