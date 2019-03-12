@@ -1,4 +1,4 @@
-module Omniauth
+module OmniAuth
   module Jama
     module Connect
       VERSION = "0.1.0"
