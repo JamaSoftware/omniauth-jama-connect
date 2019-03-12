@@ -1,8 +1,6 @@
-# Omniauth::Jama::Connect
+# OmniAuth Jama Connect
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/omniauth/jama/connect`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Jama Connect OAuth2 Strategy for OmniAuth
 
 ## Installation
 
@@ -22,7 +20,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Here's a quick example for adding the middleware to a Rails application (in `config/initializers/omniauth.rb`):
+
+```ruby
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :jama_connect, ENV["JAMA_CONNECT_CLIENT_ID"], ENV["JAMA_CONNECT_CLIENT_SECRET"], host: "https://YOUR_COMPANY.jamaland.com"
+end
+```
+
+This will add an endpoint to your application at `/auth/jama_connect` that will being the OAuth flow.
+
+In the callback controller, you can find the `token` and `refresh_token` on the Hash: `request.env['omniauth.auth']['credentials']`. Store these values for subsequent requests to the Jama Connect API.
 
 ## Development
 
@@ -32,7 +40,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/omniauth-jama-connect.
+Bug reports and pull requests are welcome on GitHub at https://github.com/JamaSoftware/omniauth-jama-connect.
 
 ## License
 

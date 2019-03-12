@@ -5,6 +5,7 @@ module OmniAuth
     class JamaConnect < OmniAuth::Strategies::OAuth2
       option :name, 'jama_connect'
       option :scope, 'token_information'
+      option :origin_param, 'redirect_uri'
       option :client_options, {
         auth_scheme: :basic_auth,
       }
